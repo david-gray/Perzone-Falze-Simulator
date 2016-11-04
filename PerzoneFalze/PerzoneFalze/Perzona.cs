@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PerzoneFalze
 {
-    class Perzona
+    public class Perzona
     {
         string name;
         string surname;
