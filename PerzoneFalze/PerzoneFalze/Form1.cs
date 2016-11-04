@@ -33,7 +33,7 @@ namespace PerzoneFalze
                     Thread.Sleep(100);
                 }
             }
-            Perzona P1 = new Perzona("Nicolò", "Giordano", new DateTime(1991, 3, 26));
+            Perzona P1 = new Perzona("Luca", "Giordano", new DateTime(1991, 3, 26));
 
             
             listaPersone.Add(P1);
