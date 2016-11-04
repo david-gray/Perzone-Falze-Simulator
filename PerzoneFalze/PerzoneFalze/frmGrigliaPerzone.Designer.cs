@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGrigliaPerzone));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.deletedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateAddedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateOfMindDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DGWPerzone = new System.Windows.Forms.DataGridView();
+            this.colDeletedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStateOfMind = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSourcePerzone = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -51,71 +55,96 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGWPerzone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePerzone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DGWPerzone
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.deletedDateDataGridViewTextBoxColumn,
-            this.lastUpdateDataGridViewTextBoxColumn,
-            this.dateAddedDataGridViewTextBoxColumn,
-            this.birthDateDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.stateOfMindDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.bindingSourcePerzone;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 271);
-            this.dataGridView1.TabIndex = 0;
+            this.DGWPerzone.AutoGenerateColumns = false;
+            this.DGWPerzone.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.DGWPerzone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGWPerzone.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDeletedDate,
+            this.colLastUpdate,
+            this.colDateAdded,
+            this.colBirthDate,
+            this.colSurname,
+            this.colName,
+            this.colStateOfMind});
+            this.DGWPerzone.DataSource = this.bindingSourcePerzone;
+            this.DGWPerzone.Location = new System.Drawing.Point(0, 28);
+            this.DGWPerzone.Name = "DGWPerzone";
+            this.DGWPerzone.Size = new System.Drawing.Size(743, 271);
+            this.DGWPerzone.TabIndex = 0;
+            this.DGWPerzone.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGWPerzone_CellEndEdit);
             // 
-            // deletedDateDataGridViewTextBoxColumn
+            // colDeletedDate
             // 
-            this.deletedDateDataGridViewTextBoxColumn.DataPropertyName = "DeletedDate";
-            this.deletedDateDataGridViewTextBoxColumn.HeaderText = "DeletedDate";
-            this.deletedDateDataGridViewTextBoxColumn.Name = "deletedDateDataGridViewTextBoxColumn";
+            this.colDeletedDate.DataPropertyName = "DeletedDate";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "G";
+            dataGridViewCellStyle1.NullValue = null;
+            this.colDeletedDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colDeletedDate.HeaderText = "DeletedDate";
+            this.colDeletedDate.Name = "colDeletedDate";
+            this.colDeletedDate.Width = 92;
             // 
-            // lastUpdateDataGridViewTextBoxColumn
+            // colLastUpdate
             // 
-            this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdate";
-            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "LastUpdate";
-            this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
+            this.colLastUpdate.DataPropertyName = "LastUpdate";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "G";
+            dataGridViewCellStyle2.NullValue = null;
+            this.colLastUpdate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colLastUpdate.HeaderText = "LastUpdate";
+            this.colLastUpdate.Name = "colLastUpdate";
+            this.colLastUpdate.Width = 87;
             // 
-            // dateAddedDataGridViewTextBoxColumn
+            // colDateAdded
             // 
-            this.dateAddedDataGridViewTextBoxColumn.DataPropertyName = "DateAdded";
-            this.dateAddedDataGridViewTextBoxColumn.HeaderText = "DateAdded";
-            this.dateAddedDataGridViewTextBoxColumn.Name = "dateAddedDataGridViewTextBoxColumn";
+            this.colDateAdded.DataPropertyName = "DateAdded";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "G";
+            dataGridViewCellStyle3.NullValue = null;
+            this.colDateAdded.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDateAdded.HeaderText = "DateAdded";
+            this.colDateAdded.Name = "colDateAdded";
+            this.colDateAdded.Width = 86;
             // 
-            // birthDateDataGridViewTextBoxColumn
+            // colBirthDate
             // 
-            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.HeaderText = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
+            this.colBirthDate.DataPropertyName = "BirthDate";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colBirthDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colBirthDate.HeaderText = "BirthDate";
+            this.colBirthDate.Name = "colBirthDate";
+            this.colBirthDate.Width = 76;
             // 
-            // surnameDataGridViewTextBoxColumn
+            // colSurname
             // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.colSurname.DataPropertyName = "Surname";
+            this.colSurname.HeaderText = "Surname";
+            this.colSurname.Name = "colSurname";
+            this.colSurname.Width = 74;
             // 
-            // nameDataGridViewTextBoxColumn
+            // colName
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.Width = 60;
             // 
-            // stateOfMindDataGridViewCheckBoxColumn
+            // colStateOfMind
             // 
-            this.stateOfMindDataGridViewCheckBoxColumn.DataPropertyName = "StateOfMind";
-            this.stateOfMindDataGridViewCheckBoxColumn.HeaderText = "StateOfMind";
-            this.stateOfMindDataGridViewCheckBoxColumn.Name = "stateOfMindDataGridViewCheckBoxColumn";
+            this.colStateOfMind.DataPropertyName = "StateOfMind";
+            this.colStateOfMind.HeaderText = "StateOfMind";
+            this.colStateOfMind.Name = "colStateOfMind";
+            this.colStateOfMind.Width = 72;
             // 
             // bindingSourcePerzone
             // 
@@ -158,7 +187,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Aggiungi nuovo";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -242,7 +270,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 299);
             this.Controls.Add(this.bindingNavigator1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGWPerzone);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -251,7 +279,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Griglia Perzone";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Shown += new System.EventHandler(this.frmGrigliaPerzone_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.DGWPerzone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePerzone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
@@ -263,15 +292,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGWPerzone;
         private System.Windows.Forms.BindingSource bindingSourcePerzone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deletedDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateAddedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn stateOfMindDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -284,5 +306,12 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDeletedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateAdded;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colStateOfMind;
     }
 }

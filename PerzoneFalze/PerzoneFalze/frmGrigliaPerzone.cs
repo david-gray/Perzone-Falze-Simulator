@@ -12,17 +12,36 @@ namespace PerzoneFalze
 {
     public partial class frmGrigliaPerzone : Form
     {
+        bool isActive;
+
         List<Perzona> _listaPersone;
         public frmGrigliaPerzone(List<Perzona> ListaPersone)
         {
             InitializeComponent();
+
+            this.isActive = false;
+
             this._listaPersone = ListaPersone;
             this.bindingSourcePerzone.DataSource = this._listaPersone;
         }
 
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        private void frmGrigliaPerzone_Shown(object sender, EventArgs e)
         {
-            this.bindingSourcePerzone.AddNew();
+            this.isActive = true;
+        }
+
+        private void DGWPerzone_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.isActive)
+            {
+                if (e.ColumnIndex == this.colStateOfMind.Index)
+                {
+                    DataGridView griglia = sender as DataGridView;
+                    Perzona currentPerz = griglia.CurrentRow.DataBoundItem as Perzona;
+                    if (currentPerz.StateOfMind)
+                        MessageBox.Show("QUESTA E' UNA PERZONA FALZA!");
+                }
+            }
         }
     }
 }

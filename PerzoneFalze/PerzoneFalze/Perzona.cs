@@ -122,5 +122,10 @@ namespace PerzoneFalze
             this.deletedDate = null;
         }
 
+        public Perzona()
+        {
+            // TODO: Complete member initialization
+        }
+
     }
 }
