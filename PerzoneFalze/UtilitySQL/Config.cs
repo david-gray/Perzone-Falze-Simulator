@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.IO;
 
 namespace PerzoneFalze.Utilities
 {
@@ -22,7 +23,7 @@ namespace PerzoneFalze.Utilities
 
         private Config()
         {
-            this._connectionString = Funzioni.ReadINI("connectionString", "config.ini");
+            this._connectionString = "Data Source=" + Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite;Version=3;";
             this._connection = new SQLiteConnection(this._connectionString);
             this._connection.Open();
         }
