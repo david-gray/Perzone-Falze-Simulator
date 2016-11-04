@@ -39,7 +39,7 @@ namespace PerzoneFalze
                     DataGridView griglia = sender as DataGridView;
                     Perzona currentPerz = griglia.CurrentRow.DataBoundItem as Perzona;
                     if (currentPerz.StateOfMind)
-                        MessageBox.Show("QUESTA E' UNA PERZONA FALZA!");
+                        MessageBox.Show("E' UNA PERZONA FALZA!");
                 }
             }
         }
