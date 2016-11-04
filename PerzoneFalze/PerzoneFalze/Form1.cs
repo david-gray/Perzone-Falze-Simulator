@@ -15,11 +15,9 @@ namespace PerzoneFalze
         public Form1()
         {
             InitializeComponent();
+            Perzona P1 = new Perzona();
+            MessageBox.Show(P1.Name + " " + P1.Surname + " " + P1.BirthDate.ToString() + " " + P1.DateAdded.ToString() + " " + P1.LastUpdate.ToString() + " " + P1.DeletedDate.ToString() + " " + P1.StateOfMind.ToString());
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Saluti da Giordy");
-        }
     }
 }
