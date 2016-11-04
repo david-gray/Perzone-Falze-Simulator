@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Threading;
+using System.Data.SQLite;
 
 namespace PerzoneFalze
 {
@@ -37,6 +38,11 @@ namespace PerzoneFalze
 
             
             listaPersone.Add(P1);
+
+            if (!CheckIfDatabaseIsAlreadyCreated())
+            {
+                CreateDatabase();
+            }
 
             using (frmGrigliaPerzone finestraGriglia = new frmGrigliaPerzone(listaPersone))
                 finestraGriglia.ShowDialog();
@@ -90,6 +96,34 @@ namespace PerzoneFalze
             DateTime BirthdateUpperLimit = new DateTime(2001, 1, 1);
             int RandomDateTime_Range = (BirthdateUpperLimit - BirthDateLowerLimit).Days;
             return BirthDateLowerLimit.AddDays(r.Next(RandomDateTime_Range));
+        }
+
+        public bool CreateDatabase()
+        {
+            try
+            {
+                SQLiteConnection.CreateFile(Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite");
+                SQLiteConnection ConnectionToDb = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite;Version=3;");
+                ConnectionToDb.Open();
+                string CreateTable_ListaContatti = "create table ListaContatti (PerzonaID INTEGER PRIMARY KEY   AUTOINCREMENT, "
+                    + "Name varchar(20), Surname varchar(20), BirthDate datetime, "
+                    + "DateAdded datetime, lastUpdate datetime, DeletedDate datetime, StateOfMind boolean)";
+                SQLiteCommand CreateTableCommand = new SQLiteCommand(CreateTable_ListaContatti, ConnectionToDb);
+                CreateTableCommand.ExecuteNonQuery();
+                ConnectionToDb.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("CreateDatabase() Exception: " + ex.Message);
+                return false;
+            }
+
+        }
+
+        public bool CheckIfDatabaseIsAlreadyCreated()
+        {
+            return File.Exists(Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite");
         }
 
     }
