@@ -149,6 +149,7 @@
             // bindingSourcePerzone
             // 
             this.bindingSourcePerzone.DataSource = typeof(PerzoneFalze.Perzona);
+            this.bindingSourcePerzone.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bindingSourcePerzone_AddingNew);
             // 
             // bindingNavigator1
             // 

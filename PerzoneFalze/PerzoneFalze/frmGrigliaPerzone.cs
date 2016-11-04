@@ -43,5 +43,10 @@ namespace PerzoneFalze
                 }
             }
         }
+
+        private void bindingSourcePerzone_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            Utilities.SQL.ExecuteQuery("INSERT INTO ListaContatti(Name,Surname,Birthdate,DateAdded,lastUpdate,DeletedDate) VALUES('','','2016-11-04','2016-11-04','2016-11-04',True)");
+        }
     }
 }
