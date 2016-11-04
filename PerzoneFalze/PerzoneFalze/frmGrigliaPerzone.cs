@@ -12,10 +12,17 @@ namespace PerzoneFalze
 {
     public partial class frmGrigliaPerzone : Form
     {
+        List<Perzona> _listaPersone;
         public frmGrigliaPerzone(List<Perzona> ListaPersone)
         {
             InitializeComponent();
-            this.bindingSourcePerzone.DataSource = ListaPersone;
+            this._listaPersone = ListaPersone;
+            this.bindingSourcePerzone.DataSource = this._listaPersone;
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            this.bindingSourcePerzone.AddNew();
         }
     }
 }
