@@ -19,5 +19,10 @@ namespace PerzoneFalze
             this._listaPersone = ListaPersone;
             this.bindingSourcePerzone.DataSource = this._listaPersone;
         }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            this.bindingSourcePerzone.AddNew();
+        }
     }
 }

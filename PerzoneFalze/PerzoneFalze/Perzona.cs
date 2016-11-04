@@ -10,13 +10,13 @@ namespace PerzoneFalze
     {
         string name;
         string surname;
-        DateTime birthDate;
-        DateTime dateAdded;
-        DateTime lastUpdate;
-        DateTime deletedDate;
+        DateTime? birthDate;
+        DateTime? dateAdded;
+        DateTime? lastUpdate;
+        DateTime? deletedDate;
         bool stateOfMind;
 
-        public DateTime DeletedDate
+        public DateTime? DeletedDate
         {
             get
             {
@@ -29,7 +29,7 @@ namespace PerzoneFalze
             }
         }
 
-        public DateTime LastUpdate
+        public DateTime? LastUpdate
         {
             get
             {
@@ -42,7 +42,7 @@ namespace PerzoneFalze
             }
         }
 
-        public DateTime DateAdded
+        public DateTime? DateAdded
         {
             get
             {
@@ -55,7 +55,7 @@ namespace PerzoneFalze
             }
         }
 
-        public DateTime BirthDate
+        public DateTime? BirthDate
         {
             get
             {
@@ -106,15 +106,21 @@ namespace PerzoneFalze
             }
         }
 
-        public Perzona()
+        /// <summary>
+        /// Costruttore con parametri
+        /// </summary>
+        /// <param name="name">Specifica il nome</param>
+        /// <param name="surname">Specifica il cognome</param>
+        /// <param name="Birth">Specifica la data di nascita</param>
+        public Perzona(string name, string surname, DateTime Birth)
         {
-            name = "Name";
-            Surname = "Surname";
-            BirthDate = new DateTime(1989, 6, 1);
-            DateAdded = new DateTime(2016, 11, 4);
-            LastUpdate = new DateTime(2016, 11, 4);
-            DeletedDate = new DateTime(1970, 1, 1, 0, 0, 0);
-            StateOfMind = true; 
+            this.name = name;
+            this.surname = surname;
+            this.birthDate = Birth;
+            this.dateAdded = DateTime.Now;
+            this.lastUpdate = DateTime.Now;
+            this.deletedDate = null;
         }
+
     }
 }
