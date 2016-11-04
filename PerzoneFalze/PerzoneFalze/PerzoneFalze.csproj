@@ -95,6 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PerzoneFalze.ico" />
+    <Content Include="TextFiles\Cognomi.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TextFiles\Nomi.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
