@@ -47,8 +47,11 @@ namespace PerzoneFalze
 
             DataTable dt = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
 
-            using (frmGrigliaPerzone finestraGriglia = new frmGrigliaPerzone(listaPersone))
-                finestraGriglia.ShowDialog();
+            using (frmNewGrigliaPerzone nuovaFinestraGriglia = new frmNewGrigliaPerzone())
+                nuovaFinestraGriglia.ShowDialog();
+
+            //using (frmGrigliaPerzone finestraGriglia = new frmGrigliaPerzone(listaPersone))
+            //    finestraGriglia.ShowDialog();
             
         }
 
