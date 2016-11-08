@@ -8,6 +8,7 @@ namespace PerzoneFalze
 {
     public class Perzona
     {
+        Int64 perzonaID;
         string name;
         string surname;
         DateTime? birthDate;
@@ -106,6 +107,18 @@ namespace PerzoneFalze
             }
         }
 
+        public Int64 PerzonaID
+        {
+            get
+            {
+                return perzonaID;
+            }
+            set
+            {
+                perzonaID = value;
+            }
+        }
+
         /// <summary>
         /// Costruttore con parametri
         /// </summary>
@@ -125,6 +138,18 @@ namespace PerzoneFalze
         public Perzona()
         {
             // TODO: Complete member initialization
+        }
+
+        public Perzona(int perzonaID, string name, string surname, DateTime birthDate, DateTime dateAdded, DateTime lastUpdate, DateTime deletedDate, bool stateOfMind)
+        {
+            this.perzonaID = perzonaID;
+            this.name = name;
+            this.surname = surname;
+            this.birthDate = birthDate;
+            this.dateAdded = dateAdded;
+            this.lastUpdate = lastUpdate;
+            this.deletedDate = deletedDate;
+            this.stateOfMind = stateOfMind;
         }
 
     }

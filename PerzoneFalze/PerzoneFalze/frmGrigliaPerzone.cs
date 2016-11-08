@@ -15,6 +15,7 @@ namespace PerzoneFalze
         bool isActive;
 
         List<Perzona> _listaPersone;
+        DataTable __listaPersone;
         public frmGrigliaPerzone(List<Perzona> ListaPersone)
         {
             InitializeComponent();
@@ -23,6 +24,16 @@ namespace PerzoneFalze
 
             this._listaPersone = ListaPersone;
             this.bindingSourcePerzone.DataSource = this._listaPersone;
+        }
+
+        public frmGrigliaPerzone(DataTable ListaPersone)
+        {
+            InitializeComponent();
+
+            this.isActive = false;
+
+            this.__listaPersone = ListaPersone;
+            this.bindingSourcePerzone.DataSource = this.__listaPersone;
         }
 
         private void frmGrigliaPerzone_Shown(object sender, EventArgs e)
@@ -46,7 +57,7 @@ namespace PerzoneFalze
 
         private void bindingSourcePerzone_AddingNew(object sender, AddingNewEventArgs e)
         {
-            Utilities.SQL.ExecuteQuery("INSERT INTO ListaContatti(Name,Surname,Birthdate,DateAdded,lastUpdate,DeletedDate, StateOfMind) VALUES('','','2016-11-04','2016-11-04','2016-11-04','2016-11-04',0)");
+            //Utilities.SQL.ExecuteQuery("INSERT INTO ListaContatti(Name,Surname,Birthdate,DateAdded,lastUpdate,DeletedDate, StateOfMind) VALUES('','','2016-11-04','2016-11-04','2016-11-04','2016-11-04',0)");
         }
     }
 }
