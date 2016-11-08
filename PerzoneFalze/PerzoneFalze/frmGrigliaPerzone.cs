@@ -48,5 +48,10 @@ namespace PerzoneFalze
         {
             Utilities.SQL.ExecuteQuery("INSERT INTO ListaContatti(Name,Surname,Birthdate,DateAdded,lastUpdate,DeletedDate, StateOfMind) VALUES('','','2016-11-04','2016-11-04','2016-11-04','2016-11-04',0)");
         }
+
+        private void bindingSourcePerzone_CurrentItemChanged(object sender, EventArgs e)
+        {
+            Utilities.SQL.ExecuteQuery("UPDATE ListaContatti");
+        }
     }
 }
