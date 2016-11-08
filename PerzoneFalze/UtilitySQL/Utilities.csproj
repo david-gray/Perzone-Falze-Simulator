@@ -51,6 +51,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite">
@@ -64,9 +66,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="DataModelCode\ConnectionHelper.cs" />
+    <Compile Include="DataModelCode\ListaContatti.cs" />
+    <Compile Include="DataModelCode\ListaContatti.Designer.cs">
+      <DependentUpon>ListaContatti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funzioni.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataModel.xpo" />
+    <None Include="DataModel.xpo.diagram">
+      <DependentUpon>DataModel.xpo</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

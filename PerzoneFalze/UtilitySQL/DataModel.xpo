@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="f4a643dc-3470-4b35-9c88-cbfc108aa92e" dbName="Database" connectionInfo="77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxEZXZFeHByZXNzWHBvR2VuZXJhdG9yU2V0dGluZ3MgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgcHJvdmlkZXJLZXk9IiZsdDtDdXN0b20gY29ubmVjdGlvbiBzdHJpbmcmZ3Q7Ij4NCiAgPHBhcmFtZXRlcj4NCiAgICA8Q29ubmVjdGlvblBhZ2VTZXR0aW5nc0l0ZW0gbmFtZT0iJmx0O0N1c3RvbSBjb25uZWN0aW9uIHN0cmluZyZndDsiIHZhbHVlPSJYcG9Qcm92aWRlcj1TUUxpdGU7RGF0YSBTb3VyY2U9QzpcVXNlcnNcbHVjYV9cU291cmNlXFJlcG9zXFRlc3RUdXJpXFBlcnpvbmUtRmFsemUtU2ltdWxhdG9yXFBlcnpvbmVGYWx6ZVxQZXJ6b25lRmFsemVcYmluXERlYnVnXFBlcnpvbmVGYWx6ZS5zcWxpdGUiIC8+DQogIDwvcGFyYW1ldGVyPg0KPC9EZXZFeHByZXNzWHBvR2VuZXJhdG9yU2V0dGluZ3M+" namespace="PerzoneFalze.Database.Tables" connectionString="XpoProvider=SQLite;Data Source=C:\Users\luca_\Source\Repos\TestTuri\Perzone-Falze-Simulator\PerzoneFalze\PerzoneFalze\bin\Debug\PerzoneFalze.sqlite" dataBaseShemaInfo="H4sIAAAAAAAEAMVX32/bNhB+H7D/QdBzaFEkZVGF7GKx28JYuwV1MuyVFI+JMJvy9CNx+tfvZCuynaRbZhjui637eMe7j7w7kun79XLh3UNZ5YUb+eGA+u/HP/+UXqoK5nVRqluYOVt4qOWqd+sqH/l3db16FwQPDw+DBz4oytuAURoGf375PM/uYKlI7qpauQz83sr8t5WPXj0vvVZ6AVXrciM/IXvAE+T9ppYw8j/n6GxSuFrVde73Oqh1VeZLVT7+Co/erLpx+d8NqtdlA/taqDcpFs3SVQcgwlVd5u52fAXlt8Kp2TQNOuTAOHhpnQY7z/vwa37S6eUW9rZ/148rDHLmas78jmAfgI80cMqOgxe8YaL5JuKnmdpf35vn3/Cb0WNmmDelO2KSqarhOm/tttNc5mV914LHmbfyL8aAOc58oar6ZmWOdw8LqMG8Pf7LoliAcv0iYqrC7/ZL7p4ReDWZZs7AGqpDxY9FCfmtw2zYH0iDTWHs5A9uI7f5kgad0A9O86oFtisxtmpRodIh2Ot+anIzM2NGbRRbI0gS6YQILiOitTaECxBUGUk5G6ZBp9wbd6QOSvi7MA60q7Qd3C++PfRA+984/l+e+1ylTiSzFohVOiIiGzIiGddEhhDFTEGsM/WC694eHkO3/Tw/U6FoYi0dElDxkAgtkGQEjFBJBdcZ02IoT820ayTnJ5spayynkoTKWiKGjBIZG0vCKDa4ryHncXhqsn27Oz9dY6TB3OUkk1inwkhJkqFVhAEb0lBxCRpOTbdvz+ena6OECxEDYWHEiRCGkYQrRpiOZRyFETawkxft7jg5P1/gLA4zQ4mxArc3kyFJEm0JcB6aEPOaan3y7d0dfz+gV3GtRBRSPIEyPIEMslYcCTMrpbE2i2VoT96rduf1+QlTy40KEyzbOMNjiKqESKNiIhVmNOiYavH2An4N7S4NPdLJO5W0fQaAuSqLbAN2F470j+2bAfPh/sN6VUJVDTAn1OA+FAN24XXDo1YaRAN64U2aRd2UMHLQ1KVaXHhXjV7kGV5irou/wI00bmEYR8LElIJIsFCfXGz8TbDQKqjaDfja9KubYqe5KsHm6/4i1ELzxh5AX2FZ3MNzxS36XHeCT5/xjcvulLttm9hG3i7NazHgO6NYQVnnPzi274SRfgIHJabXpFguwdXVU+69wA+0p1DhBRPKjznmQpfWr4/hYzF49loc/wNlGbozVg4AAA==" generateConnectionHelper="true" generateStoredProcedures="false" fieldNameCase="Unchanged" generateDefaultConstructors="false" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
+  <classes>
+    <dataBaseObjectModelHasClasses Id="f76cbb06-e3da-4984-af20-8350d695e81e">
+      <xpObject Id="20f57fd4-95b9-4385-bbbd-34e40ad80326" name="ListaContatti" baseClass="XPLiteObject" userFileName="ListaContatti" designerFileName="ListaContatti.Designer" className="ListaContatti" virtualBaseClass="XPLiteObject" persistent="ListaContatti" virtualName="ListaContatti">
+        <fields>
+          <generalXpObjectHasFields Id="fcc0cb9a-c005-4cb4-a0e9-b3bbddf2593c">
+            <field Id="8b982ffe-fab5-4c62-823b-81e572ae7bca" name="PerzonaID" columnType="Int32" key="true" persistent="PerzonaID" virtualColumnType="Int32" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="f40348c8-15a3-454a-98da-725ee8e32882">
+            <field Id="4a09ff06-ea76-4b4b-85e2-08043bc2b468" name="Name" persistent="Name" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="20" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="aba1fcb6-9851-4599-be40-9c07acf8dad4">
+            <field Id="cafdf308-1aff-4620-87df-157d57213371" name="Surname" persistent="Surname" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="20" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="0d9c7ebf-f12c-4321-ad35-9fdf55365943">
+            <field Id="dd8d4c63-c8bd-4d88-96fa-2e2601a38ebe" name="BirthDate" columnType="DateTime" persistent="BirthDate" virtualColumnType="DateTime" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="6b085f51-84f3-4224-a86e-7bebac982c70">
+            <field Id="f593447e-2153-44d2-93a2-2b78751520fa" name="DateAdded" columnType="DateTime" persistent="DateAdded" virtualColumnType="DateTime" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="8574fa63-aadd-4dd1-ba2f-318b873399e2">
+            <field Id="e3271cd0-df4d-4c81-99bf-e331d17df0bb" name="lastUpdate" columnType="DateTime" persistent="lastUpdate" virtualColumnType="DateTime" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="ddbf9a5e-a8f1-428c-a724-94d1069bf123">
+            <field Id="43ba4510-95c9-4d4d-a3bf-2f88dffc781f" name="DeletedDate" columnType="DateTime" persistent="DeletedDate" virtualColumnType="DateTime" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="5cf37372-376b-493a-8a2c-35704340f4f9">
+            <field Id="0f3da198-97c5-40a9-8da7-8a787eb70b4e" name="StateOfMind" columnType="Boolean" persistent="StateOfMind" virtualColumnType="Boolean" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+        </fields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+  </classes>
+</dataBaseObjectModel>
