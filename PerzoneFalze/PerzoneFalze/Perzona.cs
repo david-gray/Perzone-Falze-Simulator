@@ -8,6 +8,7 @@ namespace PerzoneFalze
 {
     public class Perzona
     {
+        int _perzonaID;
         string name;
         string surname;
         DateTime? birthDate;
@@ -16,6 +17,11 @@ namespace PerzoneFalze
         DateTime? deletedDate;
         bool stateOfMind;
 
+        int PerzonaID
+        {
+            get { return this._perzonaID; }
+            set { this._perzonaID = value; }
+        }
         public DateTime? DeletedDate
         {
             get
