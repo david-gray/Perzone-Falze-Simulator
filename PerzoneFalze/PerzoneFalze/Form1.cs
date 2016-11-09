@@ -238,6 +238,11 @@ namespace PerzoneFalze
                 StateOfMind = row.Field<bool>("StateOfMind")
             }).ToList();
                 }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Utilities.frmTest().ShowDialog();
+        }
     }
 
 }
