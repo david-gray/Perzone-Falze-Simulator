@@ -95,12 +95,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGrigliaPerzone.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGrigliaPerzone.Designer.cs">
-      <DependentUpon>frmGrigliaPerzone.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmNewGrigliaPerzone.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,9 +106,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmGrigliaPerzone.resx">
-      <DependentUpon>frmGrigliaPerzone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewGrigliaPerzone.resx">
       <DependentUpon>frmNewGrigliaPerzone.cs</DependentUpon>
