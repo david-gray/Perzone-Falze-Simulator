@@ -62,7 +62,7 @@ namespace PerzoneFalze
 
         private void bindingSourcePerzone_CurrentItemChanged(object sender, EventArgs e)
         {
-            Utilities.SQL.ExecuteQuery("UPDATE ListaContatti");
+            //Utilities.SQL.ExecuteQuery("UPDATE ListaContatti");
         }
     }
 }
