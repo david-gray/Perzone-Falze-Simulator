@@ -38,7 +38,8 @@ namespace PerzoneFalze
                         AddFIrstTimeContacts();
                         PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
                         FromDatatableToClass(PerzoneTable);
-                        using (frmGrigliaPerzone finestraGriglia = new frmGrigliaPerzone(PerzoneTable))
+
+                        using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
                             finestraGriglia.ShowDialog();
                     }
                     else
@@ -50,7 +51,8 @@ namespace PerzoneFalze
                 {
                     PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
                     FromDatatableToClass(PerzoneTable);
-                    using (frmGrigliaPerzone finestraGriglia = new frmGrigliaPerzone(PerzoneTable))
+
+                    using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
                         finestraGriglia.ShowDialog();
                 }
             }
