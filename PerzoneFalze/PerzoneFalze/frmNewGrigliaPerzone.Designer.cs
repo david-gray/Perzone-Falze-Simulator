@@ -28,30 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.GCPerzoneFalze = new DevExpress.XtraGrid.GridControl();
+            this.xpViewGenerale = new DevExpress.Xpo.XPView(this.components);
+            this.unitOfWorkGenerale = new DevExpress.Xpo.UnitOfWork(this.components);
             this.GVPerzoneFalze = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.LayoutControlGenerale = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.xpViewGenerale = new DevExpress.Xpo.XPView();
-            this.unitOfWorkGenerale = new DevExpress.Xpo.UnitOfWork();
             this.colPerzonaID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBirthDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStateOfMind = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LayoutControlGenerale = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCPerzoneFalze)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpViewGenerale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWorkGenerale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVPerzoneFalze)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayoutControlGenerale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpViewGenerale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitOfWorkGenerale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.GCPerzoneFalze);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
@@ -74,51 +79,14 @@
             // GCPerzoneFalze
             // 
             this.GCPerzoneFalze.DataSource = this.xpViewGenerale;
-            this.GCPerzoneFalze.Location = new System.Drawing.Point(12, 12);
+            this.GCPerzoneFalze.Location = new System.Drawing.Point(12, 38);
             this.GCPerzoneFalze.MainView = this.GVPerzoneFalze;
             this.GCPerzoneFalze.Name = "GCPerzoneFalze";
-            this.GCPerzoneFalze.Size = new System.Drawing.Size(760, 337);
+            this.GCPerzoneFalze.Size = new System.Drawing.Size(760, 311);
             this.GCPerzoneFalze.TabIndex = 4;
             this.GCPerzoneFalze.UseEmbeddedNavigator = true;
             this.GCPerzoneFalze.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GVPerzoneFalze});
-            // 
-            // GVPerzoneFalze
-            // 
-            this.GVPerzoneFalze.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colPerzonaID,
-            this.colSurname,
-            this.colName,
-            this.colBirthDate,
-            this.colStateOfMind});
-            this.GVPerzoneFalze.GridControl = this.GCPerzoneFalze;
-            this.GVPerzoneFalze.Name = "GVPerzoneFalze";
-            this.GVPerzoneFalze.OptionsBehavior.Editable = false;
-            this.GVPerzoneFalze.OptionsBehavior.ReadOnly = true;
-            this.GVPerzoneFalze.OptionsFind.AlwaysVisible = true;
-            this.GVPerzoneFalze.OptionsView.ShowAutoFilterRow = true;
-            this.GVPerzoneFalze.OptionsView.ShowGroupPanel = false;
-            this.GVPerzoneFalze.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GVPerzoneFalze_RowStyle);
-            // 
-            // LayoutControlGenerale
-            // 
-            this.LayoutControlGenerale.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.LayoutControlGenerale.GroupBordersVisible = false;
-            this.LayoutControlGenerale.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.LayoutControlGenerale.Location = new System.Drawing.Point(0, 0);
-            this.LayoutControlGenerale.Name = "LayoutControlGenerale";
-            this.LayoutControlGenerale.Size = new System.Drawing.Size(784, 361);
-            this.LayoutControlGenerale.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.GCPerzoneFalze;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(764, 341);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // xpViewGenerale
             // 
@@ -136,6 +104,23 @@
             this.unitOfWorkGenerale.AutoCreateOption = DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists;
             this.unitOfWorkGenerale.IsObjectModifiedOnNonPersistentPropertyChange = null;
             this.unitOfWorkGenerale.TrackPropertiesModifications = false;
+            // 
+            // GVPerzoneFalze
+            // 
+            this.GVPerzoneFalze.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPerzonaID,
+            this.colSurname,
+            this.colName,
+            this.colBirthDate,
+            this.colStateOfMind});
+            this.GVPerzoneFalze.GridControl = this.GCPerzoneFalze;
+            this.GVPerzoneFalze.Name = "GVPerzoneFalze";
+            this.GVPerzoneFalze.OptionsBehavior.Editable = false;
+            this.GVPerzoneFalze.OptionsBehavior.ReadOnly = true;
+            this.GVPerzoneFalze.OptionsFind.AlwaysVisible = true;
+            this.GVPerzoneFalze.OptionsView.ShowAutoFilterRow = true;
+            this.GVPerzoneFalze.OptionsView.ShowGroupPanel = false;
+            this.GVPerzoneFalze.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GVPerzoneFalze_RowStyle);
             // 
             // colPerzonaID
             // 
@@ -179,6 +164,46 @@
             this.colStateOfMind.Visible = true;
             this.colStateOfMind.VisibleIndex = 3;
             // 
+            // LayoutControlGenerale
+            // 
+            this.LayoutControlGenerale.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.LayoutControlGenerale.GroupBordersVisible = false;
+            this.LayoutControlGenerale.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.LayoutControlGenerale.Location = new System.Drawing.Point(0, 0);
+            this.LayoutControlGenerale.Name = "LayoutControlGenerale";
+            this.LayoutControlGenerale.Size = new System.Drawing.Size(784, 361);
+            this.LayoutControlGenerale.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.GCPerzoneFalze;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(764, 315);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(760, 22);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.simpleButton1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(764, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
             // frmNewGrigliaPerzone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,11 +221,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GCPerzoneFalze)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpViewGenerale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWorkGenerale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVPerzoneFalze)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayoutControlGenerale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpViewGenerale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitOfWorkGenerale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,5 +245,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colBirthDate;
         private DevExpress.XtraGrid.Columns.GridColumn colStateOfMind;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

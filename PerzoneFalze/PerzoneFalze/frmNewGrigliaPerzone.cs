@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.Xpo;
 
 namespace PerzoneFalze
 {
@@ -24,6 +25,28 @@ namespace PerzoneFalze
             {
                 e.Appearance.BackColor = Color.Cornsilk;
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                Database.Tables.ListaContatti newContatto = new Database.Tables.ListaContatti(uow);
+
+                newContatto.Name = "Tizio";
+                newContatto.Surname = "Caio";
+                newContatto.BirthDate = DateTime.Now;
+                newContatto.DateAdded = DateTime.Now;
+                newContatto.DeletedDate = DateTime.Now;
+                newContatto.lastUpdate = DateTime.Now;
+                newContatto.StateOfMind = true;
+
+                newContatto.Save();
+                uow.CommitChanges();
+            }
+
+            this.xpViewGenerale.Session.DropIdentityMap();
+            this.xpViewGenerale.Reload();
         }
     }
 }

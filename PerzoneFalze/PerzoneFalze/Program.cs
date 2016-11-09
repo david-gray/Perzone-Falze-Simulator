@@ -20,9 +20,6 @@ namespace PerzoneFalze
             DevExpress.LookAndFeel.LookAndFeelHelper.ForceDefaultLookAndFeelChanged();
             DevExpress.Skins.SkinManager.EnableMdiFormSkins();
 
-            XpoDefault.DataLayer = XpoDefault.GetDataLayer(@"XpoProvider=SQLite;Data Source=" + Application.StartupPath + "\\PerzoneFalze.sqlite", AutoCreateOption.SchemaAlreadyExists);
-            XpoDefault.Session = null;
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

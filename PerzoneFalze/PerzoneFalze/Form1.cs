@@ -11,6 +11,8 @@ using System.IO;
 using System.Threading;
 using System.Data.SQLite;
 using System.Reflection;
+using DevExpress.Xpo;
+using DevExpress.Xpo.DB;
 
 namespace PerzoneFalze
 {
@@ -35,6 +37,9 @@ namespace PerzoneFalze
                 {
                     if (CreateDatabase())
                     {
+                        XpoDefault.DataLayer = XpoDefault.GetDataLayer(@"XpoProvider=SQLite;Data Source=" + Application.StartupPath + "\\PerzoneFalze.sqlite", AutoCreateOption.SchemaAlreadyExists);
+                        XpoDefault.Session = null;
+
                         AddFIrstTimeContacts();
                         PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
                         FromDatatableToClass(PerzoneTable);
@@ -48,6 +53,9 @@ namespace PerzoneFalze
                 }
                 else
                 {
+                    XpoDefault.DataLayer = XpoDefault.GetDataLayer(@"XpoProvider=SQLite;Data Source=" + Application.StartupPath + "\\PerzoneFalze.sqlite", AutoCreateOption.SchemaAlreadyExists);
+                    XpoDefault.Session = null;
+
                     PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
                     FromDatatableToClass(PerzoneTable);
                     using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
