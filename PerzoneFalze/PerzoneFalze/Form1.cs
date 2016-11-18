@@ -25,7 +25,13 @@ namespace PerzoneFalze
 
         DataTable PerzoneTable;
 
-        int ToleranceRate = 90;
+        int MaxToleranceRate = 90; //Massimo valore % di tolleranza riguardo le perzone falze.
+        int CurrentToleranceRate; //Valore % attuale di tolleranza
+
+        int MaxUsersToAdd_1 = 7,
+            MaxUsersToAdd_2 = 10; //Il numero massimo di utenti da poter aggiungere è tra i 7 e 10 all'inizio della sessione. Verrà poi cambiato in base al valore di CurrentToleranceRate
+
+
 
         public Form1()
         {
@@ -40,9 +46,10 @@ namespace PerzoneFalze
                         XpoDefault.DataLayer = XpoDefault.GetDataLayer(@"XpoProvider=SQLite;Data Source=" + Application.StartupPath + "\\PerzoneFalze.sqlite", AutoCreateOption.SchemaAlreadyExists);
                         XpoDefault.Session = null;
 
-                        AddFIrstTimeContacts();
+                        AddContacts(10); //Quando il database viene creato per la prima volta vengono sempre aggiunte 10 persone
                         PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
                         FromDatatableToClass(PerzoneTable);
+                        CurrentToleranceRate = MaxToleranceRate;
                         using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
                             finestraGriglia.ShowDialog();
                     }
@@ -58,6 +65,9 @@ namespace PerzoneFalze
 
                     PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti");
                     FromDatatableToClass(PerzoneTable);
+
+                    CurrentToleranceRate = MaxToleranceRate; //Dovrà essere cambiato leggendo da file il valore salvato alla fine della precedente sessione
+
                     using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
                         finestraGriglia.ShowDialog();
                 }
@@ -68,7 +78,7 @@ namespace PerzoneFalze
             }
         }
 
-        private void AddFIrstTimeContacts()
+        private void AddContacts(int NumberOfPeopleToAdd)
         {
             SQLiteConnection ConnectionToDb = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite;Version=3;");
             try
@@ -76,7 +86,7 @@ namespace PerzoneFalze
                 ConnectionToDb.Open();
                 string AddPerzona = "INSERT INTO [ListaContatti] ([Name], [Surname], [BirthDate], [DateAdded], [LastUpdate], [DeletedDate], [StateOfMind]) VALUES (@name, @surname, @birthdate, @dateadded, @lastupdate, @deleteddate, 1);";
 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < NumberOfPeopleToAdd; i++)
                 {
                     Random rnd = new Random();
                     int r1 = rnd.Next(NamesList.Count);
@@ -102,7 +112,7 @@ namespace PerzoneFalze
             }
             catch (Exception ex)
             {
-                Console.WriteLine("AddFIrstTimeContacts() Exception: " + ex.Message);
+                Console.WriteLine("AddFrstTimeContacts() Exception: " + ex.Message);
             }
         }
 
@@ -169,6 +179,13 @@ namespace PerzoneFalze
                     + "DateAdded datetime, LastUpdate datetime, DeletedDate datetime NULL, StateOfMind boolean)";
                 SQLiteCommand CreateTableCommand = new SQLiteCommand(CreateTable_ListaContatti, ConnectionToDb);
                 CreateTableCommand.ExecuteNonQuery();
+
+                string CreateTable_PerzoneFalze = "create table PerzoneFalze (PerzonaID INTEGER PRIMARY KEY   AUTOINCREMENT, "
+                    + "Name varchar(20), Surname varchar(20), BirthDate datetime, "
+                    + "DateAdded datetime, LastUpdate datetime, DeletedDate datetime NULL, StateOfMind boolean)";
+                CreateTableCommand = new SQLiteCommand(CreateTable_PerzoneFalze, ConnectionToDb);
+                CreateTableCommand.ExecuteNonQuery();
+
                 ConnectionToDb.Close();
                 return true;
             }
@@ -184,21 +201,17 @@ namespace PerzoneFalze
             return File.Exists(Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite");
         }
 
+
+        #region Rimozione contatti
+
         public void JudgePeople()
         {
             foreach (Perzona P in listaPersone)
             {
                 JudgePerzona(P);
+                Thread.Sleep(100);
             }
             PerformCutting();
-
-        }
-
-        private void PerformCutting()
-        {
-            /*
-             * Qui verrà eseguita la tagliola delle perzone false, espulse dalla Lista Contatti
-             */
         }
 
         public void JudgePerzona(Perzona P)
@@ -211,8 +224,103 @@ namespace PerzoneFalze
         {
             Random rnd = new Random();
             int Probability = rnd.Next(100);
-            return (Probability > (100 - ToleranceRate));
+            return (Probability > (100 - CurrentToleranceRate));
         }
+
+        private void PerformCutting()
+        {
+            int NumberOfPeople = listaPersone.Count;
+            int PerzoneFalze = 0;
+            foreach (Perzona P in listaPersone)
+            {
+                if (!P.StateOfMind)
+                {
+                    if (CutPerzonaFalze(P.PerzonaID))
+                    {
+                        PerzoneFalze++;
+                    }
+                }
+            }
+
+            listaPersone.RemoveAll(item => item.StateOfMind == false);
+
+            int Ratio = PerzoneFalze * 100 / NumberOfPeople;
+            if (Ratio != 0)
+            {
+                CurrentToleranceRate = CurrentToleranceRate - ((CurrentToleranceRate / Ratio) * 10); //Per il calcolo riferirsi a Logica.txt
+            }
+        }
+
+        private bool CutPerzonaFalze(Int64 perzonaID)
+        {
+            SQLiteConnection ConnectionToDb = new SQLiteConnection("Data Source=" + Directory.GetCurrentDirectory() + "\\PerzoneFalze.sqlite;Version=3;");
+            try
+            {
+                ConnectionToDb.Open();
+                string AddPerzonaFalza = "INSERT INTO [PerzoneFalze] SELECT * FROM [ListaContatti] WHERE [PerzonaID] = @id";
+                SQLiteCommand QueryToDb = new SQLiteCommand(AddPerzonaFalza, ConnectionToDb);
+                QueryToDb.Parameters.Add("@id", DbType.Int64);
+                QueryToDb.Parameters["@id"].Value = perzonaID;
+                QueryToDb.ExecuteNonQuery();
+                Thread.Sleep(100);
+
+                string RemovePerzonaFromListaContatti = "DELETE FROM [ListaContatti] WHERE [PerzonaID] = @id";
+                QueryToDb = new SQLiteCommand(RemovePerzonaFromListaContatti, ConnectionToDb);
+                QueryToDb.Parameters.Add("@id", DbType.Int64);
+                QueryToDb.Parameters["@id"].Value = perzonaID;
+                QueryToDb.ExecuteNonQuery();
+                Thread.Sleep(100);
+
+                ConnectionToDb.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("AddFIrstTimeContacts() Exception: " + ex.Message);
+
+                return false;
+            }
+        }
+
+        private void RimuoviPerzone_Click(object sender, EventArgs e)
+        {
+            JudgePeople();
+            using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
+                finestraGriglia.ShowDialog();
+        }
+
+        #endregion
+
+
+        #region Aggiunta contatti
+
+        public void AddNewPeople()
+        {
+            if (CurrentToleranceRate != 0)
+            {
+                float Ratio = MaxToleranceRate / CurrentToleranceRate;
+                int min_limit = (int)(MaxUsersToAdd_1 / Ratio);
+                int max_limit = (int)(MaxUsersToAdd_2 / Ratio);
+                Random rnd = new Random();
+                int NumberOfPeopleToAdd = rnd.Next(min_limit, max_limit);
+                AddContacts(NumberOfPeopleToAdd);
+                //PerzoneTable = Utilities.SQL.SelectSQL("SELECT * FROM ListaContatti"); //Non necessario
+                FromDatatableToClass(PerzoneTable);
+            }
+            
+            using (frmNewGrigliaPerzone finestraGriglia = new frmNewGrigliaPerzone())
+                finestraGriglia.ShowDialog();
+        }
+
+        private void AggiungiPersone_Click(object sender, EventArgs e)
+        {
+            AddNewPeople();
+        }
+
+        #endregion
+
+
 
         public void AddPerzoneInstances()
         {
@@ -243,6 +351,8 @@ namespace PerzoneFalze
         {
             new Utilities.frmTest().ShowDialog();
         }
+
+
     }
 
 }

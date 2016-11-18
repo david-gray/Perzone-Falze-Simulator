@@ -1,0 +1,52 @@
+Spiegazione delle variabili all'interno del codice.
+
+MaxToleranceRate => Rappresenta il valore massimo di tolleranza dell'individuo. Ha valore costante: 90%.
+Da questo valore dipende:
+-il numero di persone che verranno aggiunte con i vari aggiornamenti della giornata
+
+CurrentToleranceRate => Rappresenta il valore % della tolleranza attuale. Quando si crea un nuovo database, il valore è pari a MaxToleranceRate. Successivamente il suo valore varia.
+Da questo valore dipendono:
+-il numero di persone che verranno aggiunte con i vari aggiornamenti della giornata
+-il numero di perzone falze che verranno eliminate dalla lista contatti
+
+-----------
+
+AGGIUNTA PERSONE
+
+Man mano che avanza il tempo, al database verranno aggiunte nuove persone. Il numero di queste viene stabilito all'interno di un range calcolato come segue:
+MaxToleranceRate : CurrentToleranceRate = Ratio (di tipo float)
+7 : Ratio = MinNumberOfAddedPeople (di tipo int)
+10 : Ratio = MinNumberOfAddedPeople (di tipo int)
+
+Ne consegue che quando viene creato il database la prima volta, avendo un CurrentToleranceRate = MaxToleranceRate, il numero di persone aggiunte sarà tra 7 e 10.
+
+Esempio di cosa succede al 40& di tolleranza.
+90 : 40 = 2.25
+7 : 2.25 = 3
+10 : 2.25 = 4
+
+Da questo calcolo, al 40% di tolleranza verranno aggiunte tra le 3 e le 4 persone.
+
+-----------
+
+RIMOZIONE PERZONE
+
+CurrentToleranceRate definisce quante probabilità hanno le persone di non essere rimosse.
+Per ogni persona presente, verrà valutato il proprio StateOfMind.
+Esempio non presente perchè trattasi di calcolo autoesplicativo.
+
+-----------
+
+CALCOLO TOLLERANZA ATTUALE
+
+Il valore di CurrentToleranceRate è soggetto a variazione, o per meglio, dire, dall'umore dell'individuo.
+Viene calcolato secondo questa formula:
+-Calcolo % del rapporto tra persone in lista e quante di queste siano state rimosse
+-CurrentToleranceRate = CurrentToleranceRate - ((CurrentToleranceRate / Rapporto) * 10)
+
+Prendiamo come esempio la situazion in cui un database venga creato da zero:
+-CurrentToleranceRate sarà uguale a 90 per le regole di cui sopra
+-In lista contatti abbiamo 10 persone
+-Vengono rimosse 5 perzone falze
+-Il rapporto tra perzone falze e persone in lista è di 5 * 100 / 10 = 50%
+-La nuova tolleranza sarà di 90 - ((90 / 50) * 10) = 72%
